@@ -56,6 +56,7 @@ public:
     //拷贝构造
     Stack(const Stack &st)
     {
+        cout<<"Stack(const Stack& st)"<<endl;
         _array = (int *)malloc(sizeof(int) * st._capacity);
         if (nullptr == _array)
         {
@@ -69,6 +70,8 @@ public:
 
     ~Stack()
     {
+        cout<<"~Stack()"<<endl;
+
         if (_array)
         {
             delete[] _array;
@@ -89,11 +92,11 @@ class MyQueue
     //默认生成构造 ->生成定义在Stack中的默认构造函数
     //默认生成析构
     //默认生成的拷贝构造
-    
+
 private:
     Stack _pushST;
     Stack _popST;
-    int _size = 0;
+    //int _size = 0;
 };
 
 int main()
@@ -104,8 +107,11 @@ int main()
     st1.Push(3);
 
     Stack st2(st1);
+    st2.Push(4);
+    st2.Push(5);
     cout<<"====="<<endl;
     MyQueue q;
+   // MyQueue q1(q);
 
     return 0;
 }
