@@ -1,7 +1,7 @@
 #include "TestDate.h"
 
 // 判断该月份天数
-int Date::GetMonthDay(int year, int month)
+int Date::GetMonthDay(int year, int month)const
 {
     assert(month > 0 && month < 13);
 
@@ -29,44 +29,44 @@ Date::Date(int year, int month, int day)
     }
 }
 
-void Date::Print()
+void Date::Print()const
 {
     cout << _year << "/" << _month << "/" << _day << endl;
 }
 
 // d1==d2 -> d1.operator==(d2)
-bool Date::operator==(const Date &d)
+bool Date::operator==(const Date &d)const
 {
     return _year == d._year && _month == d._month && _day == d._day;
     //    this->_year==d.year
 }
 
 // d1<d2
-bool Date::operator<(const Date &d)
+bool Date::operator<(const Date &d)const
 {
     return _year < d._year && (_year == d._year && _month < d._month) && (_year == d._year && _month == d._month && _day < d._day);
 }
 
 // d1<=d2
-bool Date::operator<=(const Date &d)
+bool Date::operator<=(const Date &d)const
 {
     return *this < d || *this == d; //*this就是d1
 }
 
 // d1>d2
-bool Date::operator>(const Date &d)
+bool Date::operator>(const Date &d)const
 {
     return !(*this <= d);
 }
 
 // d1>=d2
-bool Date::operator>=(const Date &d)
+bool Date::operator>=(const Date &d)const
 {
     return !(*this < d);
 }
 
 // d1!=d2
-bool Date::operator!=(const Date &d)
+bool Date::operator!=(const Date &d)const
 {
     return !(*this == d);
 }
@@ -95,7 +95,7 @@ Date &Date::operator+=(int day) // 出作用域*this还在，故用引用返回D
 }
 
 // d1+d2
-Date Date::operator+(int day)
+Date Date::operator+(int day)const
 {
     Date tmp(*this); // 拷贝构造函数的定义，拷贝临时对象
 
@@ -164,7 +164,7 @@ Date &Date::operator-=(int day)
     if (day < 0)
     {
         *this -= -day;
-        return *this;
+        return *this; 
     }
 
     _day -= day;
@@ -182,7 +182,7 @@ Date &Date::operator-=(int day)
 }
 
 // d1-100
-Date Date::operator-(int day)
+Date Date::operator-(int day) //const
 {
     Date tmp(*this);
     *this -= day;
@@ -205,10 +205,10 @@ Date Date::operator--(int)
 }
 
 // d1-d2
-int Date::operator-(const Date &d)
+int Date::operator-(const Date &d)const
 {
-    Date max = *this;//d1
-    Date min = d;//d2
+    Date max = *this; // d1
+    Date min = d;     // d2
     int flag = 1;
 
     if (*this < d)
@@ -217,6 +217,7 @@ int Date::operator-(const Date &d)
         min = *this;
         flag = -1;
     }
+
     int n = 0;
     while (min != max)
     {
@@ -225,3 +226,21 @@ int Date::operator-(const Date &d)
     }
     return n * flag;
 }
+
+// void operator<<(ostream &out,const Date& d)
+// {
+//     out<<d._year<<"年"<<d._month<<"月"<<d._day<<"日"<<endl;
+// }
+
+//➕返回值
+// ostream& operator<<(ostream &out,const Date& d)
+// {
+//     out<<d._year<<"年"<<d._month<<"月"<<d._day<<"日"<<endl;
+//     return out;
+// }
+// istream& operator>>(istream& in,Date& d)
+// {
+//     in>>d._year>>d._month>>d._day;
+//     return in;
+// }
+

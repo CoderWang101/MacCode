@@ -60,17 +60,49 @@ void TestDate3()
 void TestDate4()
 {
     Date d1(2023, 11, 1);
-    Date d2(2024, 2, 2);
     d1.Print();
+    Date d2(2022, 11, 3);
     d2.Print();
-    //cout<<d2-d1<<endl;
-    //cout<<d1-d2<<endl;
+    cout << d2 - d1 << endl;
+    cout << (d1 - d2) << endl;
+}
+
+void TestDate5()
+{
+    // 流插入
+    int i = 1;
+    double d=1.11;
+
+    cout << i; // cout.operator(i) //int
+    cout << d; // cout.operator(d) //double
+    cout<<endl;
+    cout<<"===="<<endl;
+
+    //实现流插入
+    Date d1(2023, 11, 2);
+    // operator<<(cout);
+    // d1<<cout;
+    operator<<(cout,d1);
+    cout<<d1;
+    cout<<endl;
+    Date d2(2023, 11, 2);
+    //此处为连续调用 每次 <<执行完应该return值以便继续调用
+    cout<<d1<<d2<<endl;
+
+}
+
+void TestDate6()
+{
+    //流提取
+    Date d1;
+    cin>>d1;
+    cout<<d1;
 
 }
 
 int main()
 {
-    TestDate4();
+    TestDate6();
 
     return 0;
 }
