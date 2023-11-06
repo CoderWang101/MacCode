@@ -1,0 +1,181 @@
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# tree/
+-bash: tree/: 没有那个文件或目录
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# clear
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# tree .
+.
+├── 10
+│   ├── d1
+│   │   ├── hello.c\ yes
+│   │   └── test.txt
+│   ├── d2
+│   │   └── hello.c
+│   └── d3
+│       └── Text.txt
+├── 11
+├── d1
+│   └── hello.c\ yes
+└── test.txt
+
+6 directories, 6 files
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# mv test.txt Hello.cpp
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# ls
+10  11  d1  Hello.cpp
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# rm -rf test.txt
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# ls
+10  11  d1  Hello.cpp
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# rm -rf Hello.cpp
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# ls
+10  11  d1
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# tree .
+.
+├── 10
+│   ├── d1
+│   │   ├── hello.c\ yes
+│   │   └── test.txt
+│   ├── d2
+│   │   └── hello.c
+│   └── d3
+│       └── Text.txt
+├── 11
+└── d1
+    └── hello.c\ yes
+
+6 directories, 5 files
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# mv d1 /11
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# tree .
+.
+├── 10
+│   ├── d1
+│   │   ├── hello.c\ yes
+│   │   └── test.txt
+│   ├── d2
+│   │   └── hello.c
+│   └── d3
+│       └── Text.txt
+└── 11
+
+5 directories, 4 files
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# cd ..
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# tree .
+.
+├── 2023
+│   ├── 10
+│   │   ├── d1
+│   │   │   ├── hello.c\ yes
+│   │   │   └── test.txt
+│   │   ├── d2
+│   │   │   └── hello.c
+│   │   └── d3
+│   │       └── Text.txt
+│   └── 11
+└── Test.txt
+
+6 directories, 5 files
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# tree/
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# -bash: tree/: 没有那个文件或目录
+-bash: -bash:: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# clear
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# tree .
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+├── hello.c\ yes
+│   │   └── test.txt
+│   ├── d2
+│   │   └── hello.c
+│   └── d3
+│       └── Text.txt
+├── 11
+└── d1
+    └── hello.c\ yes
+
+6 directories, 5 files
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# mv d1 /11
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# tree .
+.
+├── 10[root@iZbp17lxn02hh14s0qg08qZ Linux]# .
+-bash: .: 需要文件名参数
+.: 用法:. 文件名 [参数]
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# ├── 10
+-bash: ├──: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   ├── d1
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   │   ├── hello.c\ yes
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   │   └── test.txt
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   ├── d2
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   │   └── hello.c
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   └── d3
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │       └── Text.txt
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# ├── 11
+-bash: ├──: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# ├── d1
+-bash: ├──: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   └── hello.c\ yes
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# └── test.txt
+-bash: └──: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]#
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# 6 directories, 6 files
+-bash: 6: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# mv test.txt Hello.cpp
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# ls
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# 10  11  d1  Hello.cpp
+-bash: 10: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# rm -rf test.txt
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# ls
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# 10  11  d1  Hello.cpp
+-bash: 10: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# rm -rf Hello.cpp
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# ls
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# 10  11  d1
+-bash: 10: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# tree .
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# .
+-bash: .: 需要文件名参数
+.: 用法:. 文件名 [参数]
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# ├── 10
+-bash: ├──: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   ├── d1
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   │   ├── hello.c\ yes
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   │   └── test.txt
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   ├── d2
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   │   └── hello.c
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │   └── d3
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# │       └── Text.txt
+-bash: │  : 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# ├── 11
+-bash: ├──: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# └── d1
+-bash: └──: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]#     └── hello.c\ yes
+-bash: └──: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]#
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# 6 directories, 5 files
+-bash: 6: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# mv d1 /11
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# tree .
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# .
+-bash: .: 需要文件名参数
+.: 用法:. 文件名 [参数]
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# ├── 10
