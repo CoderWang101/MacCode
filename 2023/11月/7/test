@@ -1,0 +1,106 @@
+expect /Users/white/Desktop/Code/itermShell/login.exp 22 root 101.37.31.47 Wzf360502743817
+Last login: Tue Nov  7 12:34:40 on ttys002
+> expect /Users/white/Desktop/Code/itermShell/login.exp 22 root 101.37.31.47 Wzf360502743817
+spawn ssh -p 22 root@101.37.31.47
+root@101.37.31.47's password:
+Last login: Tue Nov  7 12:34:42 2023 from 223.167.0.68
+
+Welcome to Alibaba Cloud Elastic Compute Service !
+
+[root@iZbp17lxn02hh14s0qg08qZ ~]# clear
+[root@iZbp17lxn02hh14s0qg08qZ ~]# ls ./*
+Linux
+[root@iZbp17lxn02hh14s0qg08qZ ~]# tree .
+.
+└── dir
+    └── Linux
+        └── 2023
+            ├── 10
+            │   ├── d1
+            │   │   ├── back.txt
+            │   │   └── file.txt
+            │   ├── d2
+            │   │   └── hello.c
+            │   └── d4
+            │       ├── hello.c
+            │       └── Text.txt
+            └── 11
+
+8 directories, 5 files
+[root@iZbp17lxn02hh14s0qg08qZ ~]# cd dir/Linux
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# ls ./*
+10  11
+[root@iZbp17lxn02hh14s0qg08qZ Linux]# cd 2023/10/d1
+[root@iZbp17lxn02hh14s0qg08qZ d1]# ls ./*
+./back.txt  ./file.txt
+[root@iZbp17lxn02hh14s0qg08qZ d1]# mkdir Project
+[root@iZbp17lxn02hh14s0qg08qZ d1]# ls ./*
+./back.txt  ./file.txt
+
+./Project:
+[root@iZbp17lxn02hh14s0qg08qZ d1]# cd Project
+[root@iZbp17lxn02hh14s0qg08qZ Project]# mkdir Test.cpp
+[root@iZbp17lxn02hh14s0qg08qZ Project]# tree .
+.
+└── Test.cpp
+
+1 directory, 0 files
+[root@iZbp17lxn02hh14s0qg08qZ Project]# cd ..
+[root@iZbp17lxn02hh14s0qg08qZ d1]# tree .
+.
+├── back.txt
+├── file.txt
+└── Project
+    └── Test.cpp
+
+2 directories, 2 files
+[root@iZbp17lxn02hh14s0qg08qZ d1]# ls ./*
+./back.txt  ./file.txt
+
+./Project:
+Test.cpp
+[root@iZbp17lxn02hh14s0qg08qZ d1]# cd ..
+[root@iZbp17lxn02hh14s0qg08qZ 10]# tree .
+.
+├── d1
+│   ├── back.txt
+│   ├── file.txt
+│   └── Project
+│       └── Test.cpp
+├── d2
+│   └── hello.c
+└── d4
+    ├── hello.c
+    └── Text.txt
+
+5 directories, 5 files
+[root@iZbp17lxn02hh14s0qg08qZ 10]# ls ./*
+./d1:
+back.txt  file.txt  Project
+
+./d2:
+hello.c
+
+./d4:
+hello.c  Text.txt
+[root@iZbp17lxn02hh14s0qg08qZ 10]# cd ..
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# ls ./*
+./10:
+d1  d2  d4
+
+./11:
+[root@iZbp17lxn02hh14s0qg08qZ 2023]#
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# hello.c
+-bash: hello.c: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ 2023]#
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# ./d4:
+-bash: ./d4:: 没有那个文件或目录
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# hello.c  Text.txt
+-bash: hello.c: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# [root@iZbp17lxn02hh14s0qg08qZ 10]# cd ..
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# [root@iZbp17lxn02hh14s0qg08qZ 2023]# ls ./*
+-bash: [root@iZbp17lxn02hh14s0qg08qZ: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# ./10:
+-bash: ./10:: 没有那个文件或目录
+[root@iZbp17lxn02hh14s0qg08qZ 2023]# d1  d2  d4
