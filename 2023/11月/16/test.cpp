@@ -155,7 +155,7 @@ int main()
     Stack st;
 
     //pst为指针,是内置类型,不会自动调用
-    Stack* pst;
+    Stack* pst=new Stack;
     delete pst;
 
     return 0;
