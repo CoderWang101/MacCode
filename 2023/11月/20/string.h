@@ -90,10 +90,26 @@ namespace wzf
             return _size;
         }
 
+        //给const对象调用
+        const char &operator[](size_t pos) const
+        {
+            assert(pos < _size);
+            return _str[pos];
+        }
+        //给普通对象,构成函数重载
         char &operator[](size_t pos)
         {
             assert(pos < _size);
             return _str[pos];
+        }
+
+        void Print(const string &s)
+        {
+            for (size_t i = 0; i < s.size(); i++)
+            {
+                cout << s[i] << "";
+            }
+            cout << endl;
         }
 
     private:
@@ -145,10 +161,14 @@ namespace wzf
             s1[i]++;
         }
         cout << endl;
+ 
         for (size_t i = 0; i < s1.size(); i++)
         {
-            cout << s1[i] << "";
+            cout<<s1[i]<<" ";
         }
         cout << endl;
+
+       //Print(s1);
+    
     }
 }
