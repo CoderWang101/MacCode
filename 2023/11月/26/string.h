@@ -9,33 +9,26 @@ namespace wzf
     class string
     {
     public:
-        // string()
-        //     : _str(new char[1]), _size(0), _capacity(0)
-        // {
-        //     _str[0] = '\0'; // 没有内容时依旧有‘\0’
-        // }
-        // // r,string应该是遇到'\0'停止否则会崩
+        typedef char *iterator;
+        typedef const char *const_iterator;
+        iterator begin()
+        {
+            return _str;
+        }
+        iterator end()
+        {
+            return _str + _size;
+        }
 
-        // string(const char *str)
-        //     : _size(strlen(str))
-        // {
-        //     _capacity = _size;
-        //     _str = new char[_capacity + 1]; //+1-> '\0'
-        //     strcpy(_str, str);
-        // }
+        const_iterator begin() const
+        {
+            return _str;
+        }
+        const_iterator end() const
+        {
+            return _str + _size;
+        }
 
-        // 将string()与string(const)进行复用
-        // const char *str≠nulptr,string应该是遇到'\0'停止否则会崩
-
-        // 默认参数值是 '\0'，即空字符。然而，由于 str 是 const char* 类型，而不是 char 类型，因此在这种情况下，
-        // '\0' 被解释为一个整数 0，而不是一个空字符。这可能导致编译错误或未定义行为。
-        // string(const char *str="\0")// ≠‘\0’
-
-        /*
-        一个空字符串也是一个有效的字符串，它不需要以 '\0' 的形式进行显式表示，也就是说，一个空字符串已经包含了一个空字符。
-        因此，当我们在下面的类构造函数中将空字符串 "" 传递给 const char* 类型的形参 str 时，
-        编译器会自动将其转换为一个空字符 '\0'。
-        */
         string(const char *str = "") // 可以不写 "\0"
             : _size(strlen(str))
         {
@@ -56,13 +49,6 @@ namespace wzf
         {
             if (this != &s) // s1≠s1
             {
-                // delete[] _str;//销毁原来空间,防止s1空间小于s2,或s1>s2造成空间浪费
-                // _size = s._size;
-                // _capacity = s._capacity;
-                // _str = new char[s._capacity + 1];
-                // assert(_str != nullptr); // 判断是否开辟成功
-                // strcpy(_str, s._str);
-
                 char *tmp = new char[s._capacity + 1];
                 strcpy(tmp, s._str);
                 delete[] _str; // 销毁原来空间,防止s1空间小于s2,或s1>s2造成空间浪费
@@ -90,13 +76,13 @@ namespace wzf
             return _size;
         }
 
-        //给const对象调用
+        // 给const对象调用
         const char &operator[](size_t pos) const
         {
             assert(pos < _size);
             return _str[pos];
         }
-        //给普通对象,构成函数重载
+        // 给普通对象,构成函数重载
         char &operator[](size_t pos)
         {
             assert(pos < _size);
@@ -110,6 +96,13 @@ namespace wzf
                 cout << s[i] << " ";
             }
             cout << endl;
+
+            const_iterator rit = s.begin();
+            while (rit != s.end())
+            {
+                cout << *rit << " ";
+                ++rit;
+            }
         }
 
     private:
@@ -156,19 +149,26 @@ namespace wzf
     void test_string3()
     {
         string s1("Hello Word");
-         for (size_t i = 0; i < s1.size(); i++)
+        for (size_t i = 0; i < s1.size(); i++)
         {
             s1[i]++;
         }
         cout << endl;
- 
+
         for (size_t i = 0; i < s1.size(); i++)
         {
-            cout<<s1[i]<<" ";
+            cout << s1[i] << " ";
         }
         cout << endl;
 
-       //Print(s1);
-    
+        // Print(s1);
+
+        string::iterator it = s1.begin();
+        while (it != s1.end())
+        {
+            cout << *it << " ";
+            ++it;
+        }
+        cout << endl;
     }
 }

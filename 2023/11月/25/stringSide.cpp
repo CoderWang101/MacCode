@@ -97,29 +97,170 @@ namespace Example
         cout << s2.size() << endl;
         cout << s2.capacity() << endl;
     }
-
+    // for(auto ch: s1)
+    // {
+    //     cout<<ch<<" ";
+    // }
+    // cout<<endl;
     void test6()
     {
         string s1("Hello Word");
-        string::iterator it=s1.begin();
-        while (it!=s1.end())
+        string::iterator it = s1.begin();
+        while (it != s1.end())
         {
-            cout<<*it<<" ";
+            cout << *it << " ";
             ++it;
         }
-        cout<<endl;
+        cout << endl;
 
-        // for(auto ch: s1)
-        // {
-        //     cout<<ch<<" ";
-        // }
-        // cout<<endl;
+        string s3("Hello Word");
+        string::const_iterator cit = s3.begin();
+        while (cit != s3.end())
+        {
+            cout << *cit << " ";
+            ++cit;
+        }
+        cout << endl;
+
+        // 反向迭代
+        string::reverse_iterator rit = s1.rbegin();
+        while (rit != s1.rend())
+        {
+            cout << *rit << " ";
+            ++rit;
+        }
+        cout << endl;
+
+        string::const_reverse_iterator crit = s1.rbegin(); // auto crit=s.rbegin();
+        while (crit != s1.rend())
+        {
+            cout << *crit << " ";
+            ++crit;
+        }
+        cout << endl;
+    }
+
+    void test7()
+    {
+        string s1("Word");
+        s1.insert(0, "Hello");
+        cout << s1 << endl;
+
+        s1.insert(5, "1");
+        cout << s1 << endl;
+
+        s1.insert(s1.begin() + 5, ' ');
+        cout << s1 << endl;
+    }
+
+    void test8()
+    {
+        string s1("Hello Word");
+        s1.erase(5, 1);
+        cout << s1 << endl;
+
+        s1.erase(s1.begin() + 5);
+        cout << s1 << endl;
+
+        s1.erase(s1.begin() + 5, s1.begin() + 7);
+        cout << s1 << endl;
+    }
+
+    void test9()
+    {
+        cout << endl;
+
+        string s1("Hello Word i love you");
+
+        size_t num = 0;
+        for (size_t i = 0; i < s1.size(); ++i)
+        {
+            if (s1[i] == ' ')
+                ++num;
+        }
+        // 提前开空间，减少开辟次数，提高效率,避免replace
+        s1.reserve(s1.size() + 2 * num);
+
+        size_t pos = s1.find(' '); // 找到第一个并范围下标，若没找到返回-1
+        while (pos != string::npos)
+        {
+            s1.replace(pos, 1, "%20");   // 从pos位置后的一个字符替换为%20
+            pos = s1.find(' ', pos + 3); // 从pos+3位置向后找' ',
+        }
+        cout << s1 << endl;
+
+        cout << endl;
+
+        string s2("Hello Word i love you");
+        string newStr;
+
+        size_t num2 = 0;
+        for (size_t i = 0; i < s1.size(); ++i)
+        {
+            if (s1[i] == ' ')
+                ++num2;
+        }
+        s1.reserve(s1.size() + 2 * num2);
+
+        for (size_t i = 0; i < s2.size(); ++i)
+        {
+            if (s2[i] != ' ')
+                newStr += s2[i];
+            else
+                newStr += "%20";
+        }
+        s2 = newStr;
+        cout << s2 << endl;
+    }
+
+    void test10()
+    {
+        // string::swap
+        string s1("HelloWord");
+        string s2("***********");
+        cout << s1 << endl
+             << s2 << endl;
+
+        s1.swap(s2);
+        cout << endl
+             << s1 << endl
+             << s2 << endl;
+
+        // std::swap
+        swap(s1, s2);
+        cout << endl
+             << s1 << endl
+             << s2 << endl;
+    }
+    void test11()
+    {
+        string s1("Hello Word");
+        cout << (void *)s1.c_str() << endl;
+
+        s1 += '\0';
+        s1 += '\0';
+        s1 += "xxxxxxx";
+
+        cout << s1 << endl
+             << s1.c_str() << endl;
+    }
+
+    void test12()
+    {
+        string file("string.cpp.txt.exe");
+        size_t pos = file.rfind('.');
+
+        if (pos != string::npos)
+        {
+            string suffix = file.substr(pos, file.size() - pos);//substr:提取从位置 poa 开始的前 file.size()-pos 个字符
+            cout<<suffix<<endl;//.exe
+        }
     }
 }
 
 int main()
 {
-    Example::test6();
+    Example::test12();
 
     return 0;
 }
