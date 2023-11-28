@@ -4,7 +4,7 @@ int main()
 {
     try // char* tmp = new char[s._capacity + 1];是否开辟异常
     {
-        wzf::test_string3();
+        wzf::test_string5();
     }
     catch (const std::exception &e)
     {
