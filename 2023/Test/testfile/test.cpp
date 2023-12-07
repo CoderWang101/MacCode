@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <assert.h>
 
@@ -522,4 +521,19 @@ namespace wzf
         cout << s1 << endl;
         
     }
+}
+
+
+int main()
+{
+    try // char* tmp = new char[s._capacity + 1];是否开辟异常
+    {
+        wzf::test_string9();
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    return 0;
 }

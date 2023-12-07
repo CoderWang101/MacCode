@@ -1,6 +1,6 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     "/Users/white/Desktop/Code/c++/2023/10月/10.12/test"
+binary-path:     "/Users/white/Desktop/Code/c++/mac-code/2023/10月/12/test"
 relocations:
   - { offsetInCU: 0x2F22, offset: 0x2F22, size: 0x8, addend: 0x0, symName: __ZNSt3__124__put_character_sequenceB7v160006IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m, symObjAddr: 0x148, symBinAddr: 0x100003254, symSize: 0x1EC }
   - { offsetInCU: 0x4872, offset: 0x4872, size: 0x8, addend: 0x0, symName: __ZNSt3__1lsB7v160006INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc, symObjAddr: 0x7C, symBinAddr: 0x100003188, symSize: 0x48 }
