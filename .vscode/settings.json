@@ -1,6 +1,8 @@
 {
     "cmake.sourceDirectory": "/Users/white/Desktop/Code/c++/mac-code/2023/12/6/TestFile",
     "files.associations": {
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "new": "cpp",
+        "iosfwd": "cpp"
     }
 }

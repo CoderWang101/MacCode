@@ -138,33 +138,6 @@ namespace wzf
             return *this;
         }
 
-        // 缩容
-        void resize(size_t n, char ch = '\0')
-        {
-            if (n < _size)
-            {
-                // 删除数据 -- 保留前n个
-                _size = n;
-                _str[_size] = '\0';
-            }
-            else if (n > _size) // n=_size不处理
-            {
-                if (n > _capacity)
-                {
-                    reserve(n);
-                }
-
-                size_t i = _size;
-                while (i < n) // 从size位置开始填字符
-                {
-                    _str[i] = ch;
-                    ++i;
-                }
-                _size = n;
-                _str[_size] = '\0';
-            }
-        }
-
         // 开空间
         void reserve(size_t n)
         {
@@ -275,6 +248,33 @@ namespace wzf
                 _size -= len;
             }
             return *this;
+        }
+
+        // 缩容
+        void resize(size_t n, char ch = '\0')
+        {
+            if (n < _size)
+            {
+                // 删除数据 -- 保留前n个
+                _size = n;
+                _str[_size] = '\0';
+            }
+            else if (n > _size) // n=_size不处理
+            {
+                if (n > _capacity)
+                {
+                    reserve(n);
+                }
+
+                size_t i = _size;
+                while (i < n) // 从size位置开始填字符
+                {
+                    _str[i] = ch;
+                    ++i;
+                }
+                _size = n;
+                _str[_size] = '\0';
+            }
         }
 
         size_t find(char ch, size_t pos = 0)
@@ -520,6 +520,5 @@ namespace wzf
 
         cin >> s1;
         cout << s1 << endl;
-        
     }
 }
