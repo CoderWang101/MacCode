@@ -8,6 +8,18 @@
             "name": "(lldb) 启动",
             "type": "cppdbg",
             "request": "launch",
+            "program": "{fileDirname}/${fileBasenameNoExtension",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "name": "(lldb) 启动",
+            "type": "cppdbg",
+            "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
