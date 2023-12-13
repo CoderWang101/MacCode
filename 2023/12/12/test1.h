@@ -6,11 +6,9 @@
 #define MAC_CODE_TEST1_H
 
 
-
 class test1 {
 
 };
-
 
 
 #endif //MAC_CODE_TEST1_H
