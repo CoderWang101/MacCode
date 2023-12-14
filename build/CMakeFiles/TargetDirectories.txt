@@ -1,0 +1,2 @@
+/Users/white/Desktop/Code/c++/mac-code/build/CMakeFiles/edit_cache.dir
+/Users/white/Desktop/Code/c++/mac-code/build/CMakeFiles/rebuild_cache.dir
