@@ -2,7 +2,7 @@
 
 int main()
 {
-    wzf::test_vector4();
+    wzf::test_vector6();
 
 
     return 0;

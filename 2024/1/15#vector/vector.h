@@ -18,7 +18,32 @@ namespace wzf
         {
         }
 
-        //~vector();
+        vector(size_t n, const T &value = T())
+            : _start(nullptr), _finish(nullptr), _end_of_storage(nullptr)
+        {
+            reserve(n);
+            for (size_t i = 0; i < n; ++i)
+            {
+                push_back(value);
+            }
+        }
+        //[first,last)
+        template <class InputIterator>
+        vector(InputIterator* first, InputIterator* last)
+            : _start(nullptr), _finish(nullptr), _end_of_storage(nullptr)
+        {
+            while (first != last)
+            {
+                push_back(*first);
+                ++first;
+            }
+        }
+
+        ~vector()
+        {
+            delete[] _start;
+            _start = _finish = _end_of_storage = nullptr;
+        }
 
         iterator begin()
         {
@@ -124,18 +149,19 @@ namespace wzf
             return pos;
         }
 
-        void erase(iterator pos)
+        iterator erase(iterator pos)
         {
             assert(pos >= _start);
             assert(pos < _finish);
 
             iterator start = pos + 1;
-            while (start!=_finish)
+            while (start != _finish)
             {
                 *(start - 1) = *start;
                 ++start;
             }
             --_finish;
+            return pos;
         }
 
         // 删除
@@ -296,8 +322,61 @@ namespace wzf
             v1.erase(pos);
         }
         func(v1);
-        //库中,调用erase,pos会失效,不能访问并且强制检查
-        //若删除最后一个元素,访问pos会造成野指针,故erase后不要访问pos
+        // 库中,调用erase,pos会失效,不能访问并且强制检查
+        // 若删除最后一个元素,访问pos会造成野指针,故erase后不要访问pos
+    }
+    void test_vector5()
+    {
+        vector<int> v1;
+        v1.push_back(10);
+        v1.push_back(2);
+        v1.push_back(3);
+        v1.push_back(4);
+        v1.push_back(5);
+        v1.push_back(50);
+
+        vector<int>::iterator it = v1.begin();
+        while (it != v1.end())
+        {
+            cout << *it << " ";
+
+            if (*it % 2 == 0)
+            {
+                it = v1.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
+
+        cout << endl;
+
+        for (it = v1.begin(); it != v1.end(); ++it)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+    }
+    void test_vector6()
+    {
+        // 调用拷贝构造
+        vector<int> v1(10, 5);
+        vector<int>::iterator it = v1.begin();
+        for (it = v1.begin(); it != v1.end(); ++it)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+
+
+        vector<int> v2(v1.begin(), v1.end());
+        for (it = v2.begin()+1; it != v2.end()-1; ++it)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+
     }
 
 }
