@@ -2,9 +2,6 @@
 #include <vector>
 using namespace std;
 
-/*
-
-*/
 void test_vector1()
 {
     // 定义一个vector

@@ -29,7 +29,7 @@ namespace wzf
         }
         //[first,last)
         template <class InputIterator>
-        vector(InputIterator* first, InputIterator* last)
+        vector(InputIterator *first, InputIterator *last)
             : _start(nullptr), _finish(nullptr), _end_of_storage(nullptr)
         {
             while (first != last)
@@ -37,6 +37,32 @@ namespace wzf
                 push_back(*first);
                 ++first;
             }
+        }
+
+        // v2(v1)
+        // vector(const vector<T> &v)
+        // {
+        //     reserve(v.capacity());
+        //     memcpy(_start, v._start, v.size() * sizeof(T));
+        //     _finish = _start + v.size();
+        // }
+        // vector(const vector<T> &v)
+        // {
+        //     _start= new T[v.capacity()];
+        //     memcpy(_start, v._start, v.size() * sizeof(T));
+        //     _finish = _start + v.size();
+        //     _end_of_storage = _start + v.capacity();
+        // }
+        vector(const vector<T> &v)
+        {
+            _start = new T[v.capacity()];
+            // memcpy(_start, v._start, v.size() * sizeof(T));
+            for (size_t i = 0; i < v.size(); ++i)
+            {
+                _start[i] = v._start[i];
+            }
+            _finish = _start + v.size();
+            _end_of_storage = _start + v.capacity();
         }
 
         ~vector()
@@ -73,7 +99,9 @@ namespace wzf
                 if (_start) // 检查旧空间是否为空
                 {
                     // 将内容复制到新空间
-                    memcpy(tmp, _start, sizeof(T) * size());
+                    // memcpy(tmp, _start, sizeof(T) * size());//浅拷贝
+                    for (size_t i = 0; i < sz; ++i)
+                        tmp[i] = _start[i];
                     delete[] _start;
                 }
                 // 更新指针
@@ -97,6 +125,7 @@ namespace wzf
         // 缩容
         void resize(size_t n, T val = T()) // T():匿名对象调用默认构造
         {
+            //检查空间大小
             if (n < size())
             {
                 // 删除数据
@@ -369,14 +398,39 @@ namespace wzf
         }
         cout << endl;
 
-
         vector<int> v2(v1.begin(), v1.end());
-        for (it = v2.begin()+1; it != v2.end()-1; ++it)
+        for (it = v2.begin() + 1; it != v2.end() - 1; ++it)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+    }
+    void test_vector7()
+    {
+        // 没写拷贝构造，编译器默认生成拷贝构造，完成值拷贝/欠拷贝
+        vector<int> v1(10, 5);
+        vector<int> v2(v1);
+        for (vector<int>::iterator it = v2.begin(); it != v2.end(); ++it)
         {
             cout << *it << " ";
         }
         cout << endl;
 
+        vector<std::string> v3(3, "HelloHelloHelloHello");
+        vector<std::string> v4(v3);
+        for (vector<std::string>::iterator it = v4.begin(); it != v4.end(); ++it)
+        {
+            cout << *it << "----";
+        }
+        cout << endl;
+        v4.push_back("≠2024!±");
+        v4.push_back("≠2024!±");
+        v4.push_back("≠≠2024!±");
+        v4.push_back("≠2024!±");
+        for (vector<std::string>::iterator it = v4.begin(); it != v4.end(); ++it)
+        {
+            cout << *it << "----";
+        }
+        cout << endl;
     }
-
 }
