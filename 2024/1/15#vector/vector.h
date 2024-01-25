@@ -53,16 +53,37 @@ namespace wzf
         //     _finish = _start + v.size();
         //     _end_of_storage = _start + v.capacity();
         // }
+
+        //传统写法
+        // vector(const vector<T> &v)
+        // {
+        //     _start = new T[v.capacity()];
+        //     // memcpy(_start, v._start, v.size() * sizeof(T));
+        //     for (size_t i = 0; i < v.size(); ++i)
+        //     {
+        //         _start[i] = v._start[i];//复制重载 vv深拷贝
+        //     }
+        //     _finish = _start + v.size();
+        //     _end_of_storage = _start + v.capacity();
+        // }
         vector(const vector<T> &v)
         {
-            _start = new T[v.capacity()];
-            // memcpy(_start, v._start, v.size() * sizeof(T));
-            for (size_t i = 0; i < v.size(); ++i)
-            {
-                _start[i] = v._start[i];
-            }
-            _finish = _start + v.size();
-            _end_of_storage = _start + v.capacity();
+            vector<T> tmp(v.begin(), v.end());
+            swap(tmp);
+        }
+
+        void swap(vector<T>& v)
+        {
+            std::swap(_start, v._start);
+            std::swap(_finish, v._finish);
+            std::swap(_end_of_storage, v._end_of_storage);
+        }
+
+        //v2=v1
+        vector<T>& operator=(const vector<T> &v)
+        {
+            swap(v);
+            return *this;
         }
 
         ~vector()

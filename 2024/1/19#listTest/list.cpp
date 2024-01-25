@@ -32,6 +32,15 @@ void list_test1()
         it++;
     }
     cout << endl;
+
+    lt.remove(3); // find+erase
+    it = lt.begin();
+    while (it != lt.end())
+    {
+        cout << *it << " ";
+        it++;
+    }
+    cout << endl;
 }
 
 int main()
