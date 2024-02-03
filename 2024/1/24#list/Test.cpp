@@ -2,7 +2,7 @@
 
 int main()
 {
-    wzf::test_list4();
+    wzf::test_list6();
 
     return 0;
 }

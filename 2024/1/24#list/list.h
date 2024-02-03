@@ -217,7 +217,7 @@ namespace wzf
             _node = _node->_prev;
             return *this;
         }
-        self &operator--(int) // 后置++
+        self &operator--(int) // 后置--
         {
             self tmp = *this;
             _node = _node->_prev;
@@ -233,13 +233,13 @@ namespace wzf
         {
             return _node == s._node;
         }
+        /*
+        "const T&"表示迭代器所指向元素的引用类型，
+        而"const T*"表示迭代器所指向元素的指针类型。
+        这样定义迭代器的目的是为了在const成员函数中
+        使用该迭代器，并保证在遍历列表时不会修改列表中的元素
+        */
     };
-    /*
-    "const T&"表示迭代器所指向元素的引用类型，
-    而"const T*"表示迭代器所指向元素的指针类型。
-    这样定义迭代器的目的是为了在const成员函数中
-    使用该迭代器，并保证在遍历列表时不会修改列表中的元素
-    */
     template <class T>
     class list
     {
@@ -270,14 +270,71 @@ namespace wzf
             return const_iterator(_head);
         }
 
-        list()
+        void empty_init()
         {
             _head = new node;
             _head->_next = _head;
             _head->_prev = _head;
         }
+        list()
+        {
+            empty_init();
+        }
+
+        // 构造函数， 迭代器区间
+        template <class Iterator>
+        list(const Iterator first, const Iterator last)
+        {
+            empty_init(); // 创建头节点
+            for (Iterator it = first; it != last; ++it)
+                push_back(*it);
+        }
+
+        void swap(list<T> &temp)
+        {
+            std::swap(_head, temp._head);
+        }
+        // 拷贝构造
+        // lt2(lt1)
+        // list(const list<T> &lt)
+        // {
+        //     empty_init();
+        //     const_iterator it = lt.begin();
+        //     while (it != lt.end())
+        //     {
+        //         push_back(*it);
+        //         ++it;
+        //     }
+        // }
+        list(const list<T> &lt)
+        {
+            empty_init();
+            list<T> temp(lt.begin(), lt.end());
+            swap(temp);
+        }
+
+        // 赋值操作符
+        // lt3=lt2
+        // 不能使用&，而是传值调用拷贝构造,拷贝lt2，赋值给lt3
+        list<T> &operator=(const list<T> lt)
+        {
+            swap(lt);
+            return *this;
+        }
+
         ~list()
         {
+            clear();
+            delete _head;
+            _head = nullptr;
+        }
+
+        // 清除头节点以外的数据
+        void clear()
+        {
+            iterator it = begin();
+            while (it != end())
+                it = erase(it); // erase(it++);//后置++返回的是前一个的拷贝，不会失效
         }
 
         // void push_back(const T &x)
@@ -335,17 +392,29 @@ namespace wzf
             cur->_prev = new_node;
         }
 
-        void erase(iterator pos)
+        iterator erase(iterator pos)
         {
             assert(pos != end());
 
-            node* prev=pos._node->_prev;
-            node* next=pos._node->_next;
+            node *prev = pos._node->_prev;
+            node *next = pos._node->_next;
 
-            prev->_next=next;
-            next->_prev=prev;
+            prev->_next = next;
+            next->_prev = prev;
             delete pos._node;
+
+            return iterator(next);
         }
+        /*
+        在该函数的最后一行，返回了一个迭代器对象 `iterator(next)`。
+        这是因为在 C++ STL 中，通常情况下，删除一个元素后，我们希望返回
+        删除元素的下一个位置作为新的迭代器。直接返回 `next` 的话，可能会
+        暴露内部实现细节，使得用户可以直接操作指针 `next`，可能导致潜在的问题。
+        为了隐藏底层指针的细节，通常会将其封装在迭代器对象中返回。因此
+        ，返回 `iterator(next)` 的方式可以提供更好的封装性和安全性，
+        使用户能够使用迭代器对象来操作返回的下一个位置，而不需要直接访问底层的指针。
+        这也符合 C++ STL 设计的一般原则，即通过迭代器提供统一的接口，隐藏底层的具体实现细节。
+        */
 
     private:
         node *_head; // ListNode<T>是类型 ， ListNode是类名
@@ -440,7 +509,39 @@ namespace wzf
         lt.pop_front();
         lt.print_list(lt);
         cout << endl;
-
     }
 
+    void test_list5()
+    {
+        list<int> lt;
+        lt.push_back(1);
+        lt.push_back(2);
+        lt.push_back(3);
+        lt.push_back(4);
+        lt.print_list(lt);
+        cout << endl;
+
+        lt.clear();
+        lt.push_back(20);
+
+        lt.print_list(lt);
+    }
+
+    void test_list6()
+    {
+        list<int> lt;
+        lt.push_back(1);
+        lt.push_back(2);
+        lt.push_back(3);
+        lt.push_back(4);
+        lt.print_list(lt);
+        cout << endl;
+
+        // list<int> lt2(lt);
+        // lt2.print_list(lt2);
+        // cout << endl;
+        list<int> lt2 = lt;
+        lt2.print_list(lt2);
+        lt.print_list(lt);
+    }
 }
