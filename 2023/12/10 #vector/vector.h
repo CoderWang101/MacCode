@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <assert.h>
+#include <cstring>
 using namespace std;
 
 namespace wzf

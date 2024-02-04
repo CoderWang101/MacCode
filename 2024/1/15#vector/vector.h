@@ -67,6 +67,7 @@ namespace wzf
         //     _end_of_storage = _start + v.capacity();
         // }
         vector(const vector<T> &v)
+                : _start(nullptr), _finish(nullptr), _end_of_storage(nullptr)
         {
             vector<T> tmp(v.begin(), v.end());
             swap(tmp);
@@ -302,6 +303,7 @@ namespace wzf
             ++it;
         }
         cout << endl;
+        
     }
     void test_vector2()
     {
