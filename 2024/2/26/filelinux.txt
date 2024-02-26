@@ -1,0 +1,92 @@
+[root@iZbp17lxn02hh14s0qg08qZ ~]# cd dir/Linux/2024/2
+[root@iZbp17lxn02hh14s0qg08qZ 2]# cd ..
+[root@iZbp17lxn02hh14s0qg08qZ 2024]# tree
+.
+├── 1
+│   ├── -C
+│   ├── project
+│   │   ├── bak.txt
+│   │   ├── file.txt
+│   │   ├── test.c
+│   │   └── tmp.txt
+│   └── pro.zip
+└── 2
+    ├── project.tgz
+    ├── pro.zip
+    └── will
+        └── project
+            ├── bak.txt
+            ├── file.txt
+            └── tmp.txt
+
+6 directories, 10 files
+[root@iZbp17lxn02hh14s0qg08qZ 2024]# cd 2
+[root@iZbp17lxn02hh14s0qg08qZ 2]# mkdir 26d
+[root@iZbp17lxn02hh14s0qg08qZ 2]# cd 26d
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# clear
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# touch myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# tree
+.
+└── myfile.txt
+
+0 directories, 1 file
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ls
+myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ll
+总用量 0
+-rw-r--r-- 1 root root 0 2月  26 12:53 myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# client_loop: send disconnect: Broken pipe
+
+ ~                                                                     ok  11m 18s  base py  13:02:45
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[root@iZbp17lxn02hh14s0qg08qZ ~]# cd dir/Linux/2024/2
+[root@iZbp17lxn02hh14s0qg08qZ 2]# clear
+[root@iZbp17lxn02hh14s0qg08qZ 2]# cd 26d
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ll
+总用量 0
+-rw-r--r-- 1 root root 0 2月  26 12:53 myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# u+x
+-bash: u+x: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ll
+总用量 0
+-rw-r--r-- 1 root root 0 2月  26 12:53 myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# u+x myfile.txt
+-bash: u+x: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ll
+总用量 0
+-rw-r--r-- 1 root root 0 2月  26 12:53 myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# chmod u+x myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ll
+总用量 0
+-rwxr--r-- 1 root root 0 2月  26 12:53 myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# chmod g+wx,o+wx myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ll
+总用量 0
+-rwxrwxrwx 1 root root 0 2月  26 12:53 myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# chmod o-wx myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ll
+总用量 0
+-rwxrwxr-- 1 root root 0 2月  26 12:53 myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# chmod a-w myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]# ll
+总用量 0
+-r-xr-xr-- 1 root root 0 2月  26 12:53 myfile.txt
+[root@iZbp17lxn02hh14s0qg08qZ 26d]#
+
+
