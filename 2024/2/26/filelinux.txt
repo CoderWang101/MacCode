@@ -90,3 +90,89 @@ myfile.txt
 [root@iZbp17lxn02hh14s0qg08qZ 26d]#
 
 
+[root@iZbp17lxn02hh14s0qg08qZ project]# ll
+总用量 176
+-rw-r--r-- 1 root root      5 1月  16 11:26 bak.txt
+-rw-r--r-- 1 root root 158907 2月  12 14:49 file.txt
+-rw-r--r-- 1 root root    156 2月  12 15:05 test.c
+-rw-r--r-- 1 root root   9284 1月  16 16:04 tmp.txt
+[root@iZbp17lxn02hh14s0qg08qZ project]# chmod file.txt 766
+chmod: 无效模式："file.txt"
+Try 'chmod --help' for more information.
+[root@iZbp17lxn02hh14s0qg08qZ project]# chmod 765  file.txt
+[root@iZbp17lxn02hh14s0qg08qZ project]# kk
+-bash: kk: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ project]# ll
+总用量 176
+-rw-r--r-- 1 root root      5 1月  16 11:26 bak.txt
+-rwxrw-r-x 1 root root 158907 2月  12 14:49 file.txt
+-rw-r--r-- 1 root root    156 2月  12 15:05 test.c
+-rw-r--r-- 1 root root   9284 1月  16 16:04 tmp.txt
+[root@iZbp17lxn02hh14s0qg08qZ project]# chmod 765 test.c
+[root@iZbp17lxn02hh14s0qg08qZ project]# ll
+总用量 176
+-rw-r--r-- 1 root root      5 1月  16 11:26 bak.txt
+-rwxrw-r-x 1 root root 158907 2月  12 14:49 file.txt
+-rwxrw-r-x 1 root root    156 2月  12 15:05 test.c
+-rw-r--r-- 1 root root   9284 1月  16 16:04 tmp.txt
+[root@iZbp17lxn02hh14s0qg08qZ project]# chmod 766  file.txt
+[root@iZbp17lxn02hh14s0qg08qZ project]# ll
+总用量 176
+-rw-r--r-- 1 root root      5 1月  16 11:26 bak.txt
+-rwxrw-rw- 1 root root 158907 2月  12 14:49 file.txt
+-rwxrw-r-x 1 root root    156 2月  12 15:05 test.c
+-rw-r--r-- 1 root root   9284 1月  16 16:04 tmp.txt
+[root@iZbp17lxn02hh14s0qg08qZ project]# cl
+-bash: cl: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ project]# cl
+clear           clock           clockdiff       cloud-init      cloud-init-per
+[root@iZbp17lxn02hh14s0qg08qZ project]# cl
+clear           clock           clockdiff       cloud-init      cloud-init-per
+[root@iZbp17lxn02hh14s0qg08qZ project]# clclear
+-bash: clclear: 未找到命令
+[root@iZbp17lxn02hh14s0qg08qZ project]# clear
+[root@iZbp17lxn02hh14s0qg08qZ project]# ll
+总用量 176
+-rw-r--r-- 1 root root      5 1月  16 11:26 bak.txt
+-rwxrw-rw- 1 root root 158907 2月  12 14:49 file.txt
+-rwxrw-r-x 1 root root    156 2月  12 15:05 test.c
+-rw-r--r-- 1 root root   9284 1月  16 16:04 tmp.txt
+[root@iZbp17lxn02hh14s0qg08qZ project]#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
