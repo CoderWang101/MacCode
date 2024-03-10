@@ -3,7 +3,7 @@
 
 int main()
 {
-    wzf::test_priority_queue();
+    wzf::TestPriorityQueue();
 
     return 0;
 }

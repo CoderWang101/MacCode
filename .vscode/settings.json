@@ -55,5 +55,6 @@
         "variant": "cpp",
         "vector": "cpp",
         "algorithm": "cpp"
-    }
+    },
+    "accessibility.signals.sounds.volume": 0
 }
