@@ -121,6 +121,7 @@ namespace wzf
                 _end_of_storage = _start + n;
             }
         }
+        
         void push_back(const T &x)
         {
             // 空间满了
