@@ -1,0 +1,43 @@
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        //0
+        if(matrix.size()==0||matrix[0].size()==0)
+            return {};
+        //定义行和列
+        int m=matrix.size(), n=matrix[0].size();
+
+        //标记边缘
+        int left=-1,  right=n-1,top=0,bottom=m-1;
+
+        //记录标号
+        int num=0;
+        vector<int>ans(m*n);
+
+        //开始赋值
+        while(num<m*n)
+        {
+            //向右
+            if(++left>right)
+                break;
+            for(int i=left;i<=right;++i)
+                ans[num++]=matrix[top][i];
+            //向下
+            if(++top>bottom)
+                break;
+            for(int i=top;i<=bottom;++i)
+                ans[num++]=matrix[i][right];
+            //向左
+            if(--right<left)
+                break;
+            for(int i=right;i>=left;--i)
+                ans[num++]=matrix[bottom][i];
+            //向上
+            if(--bottom<top)
+                break;
+            for(int i=bottom;i>=top;--i)
+                ans[num++]=matrix[i][left];
+        }
+        return ans;
+    }
+};
