@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) 
+    {
+        //max_element:找到nums中最大的元素
+        int max_num = *max_element(nums.begin(), nums.end());
+        vector<int> hash(max_num + 1, 0);
+        
+        for (int i = 0; i < nums.size(); i++) 
+        {
+            hash[nums[i]]++;
+            if (hash[nums[i]] == 2) return nums[i];
+        }
+        return -1;
+    }
+};

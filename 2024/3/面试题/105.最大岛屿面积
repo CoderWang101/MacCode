@@ -1,0 +1,72 @@
+
+class Solution {
+public:
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+
+        //定义行列
+        int maxArea=0;
+
+        for(int i=0;i<grid.size();++i)
+            for(int j=0;j<grid[0].size();j++)
+                maxArea=max(maxArea,dfs(grid,i,j));                 
+        return maxArea;
+    }
+
+    int dfs(vector<vector<int>>& grid,int x, int y)
+    {
+        if(x>=grid.size()|| x<0 || y<0|| y>=grid[0].size() || grid[x][y]==0)
+            return 0;
+        //将岛屿标记为0
+        grid[x][y]=0;
+
+        return 1+dfs(grid,x+1,y)+dfs(grid,x-1,y)+dfs(grid,x,y+1)+dfs(grid,x,y-1);
+    }
+};
+
+
+
+class Solution {
+// public:
+//     int maxAreaOfIsland(vector<vector<int>>& grid) {
+
+//         //定义行列
+//         int m=grid.size(), n=grid[0].size();
+
+//         int right=n-1,bottom=m-1;
+//         int countx=0,county=0;
+
+//         for(int i=0;i<n;++i)
+//         {
+//             for(int j=0;j<m;j++)
+//             {
+//                 if(grid[i][j]==1)
+//                 {
+//                     //向右访问
+//                     int x=i,y=j;
+//                     while(grid[x][j]==1 && x<=right)
+//                     {
+//                         countx+=1;
+//                         grid[x][j]=0;
+//                         ++x;
+
+//                         //向下访问
+//                         while(grid[x][y]==1 && y<=bottom)
+//                         {
+//                             county+=1;
+//                             grid[x][y]=0;
+//                             ++y;
+//                         }
+//                     }
+                   
+//                 }
+//             }
+//         }
+//         countx+=county;
+//         return countx;
+//     }
+// };
+// /*
+//     将访问过的岛屿设置为0,以防二次访问
+// */
+
+
