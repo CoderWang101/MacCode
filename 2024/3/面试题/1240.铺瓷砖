@@ -1,0 +1,19 @@
+class Solution 
+{
+public:
+    int tilingRectangle(int n, int m) 
+    {
+        //记录使用瓷砖数量
+        int count =0;
+
+        while(n>0 && m>0)
+        {
+            if(n<m)
+                swap(n,m);//保持n大
+            int tiles=n/m;
+            count+=tiles;
+            n-=tiles*m;
+        }
+        return count;
+    }
+};
