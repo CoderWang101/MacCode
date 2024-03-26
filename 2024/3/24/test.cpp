@@ -2,56 +2,172 @@
 #include <string>
 using namespace std;
 
-class Person
-{
-public:
-    Person(string name = "Father")
-        : _name(name)
-    {    }
+class A {public:int _a;};
 
-    Person &operator=(const Person &p)
-    {
-        if (this != &p)
-        {
-            cout << "调用父类" << endl;
-            _name = p._name;
-        }
-        return *this;
-    }
+class B : virtual public A {public:   int _b;};
 
-protected:
-    string _name;
-};
+class C : virtual public A  {public: int _c; };
 
-class student : public Person
-{
-public:
-    student(string name, int age)
-        : _age(age)
-    {    }
-    student &operator=(const student &s)
-    {
-        if (this != &s)
-        {
-            cout << "调用子类" << endl;
-            Person::operator=(s); // 必须调用父类运算符
-            _age = s._age;
-            _name = s._name;
-        }
-        return *this;
-    }
-
-protected:
-    int _age;
-};
+class D : public B, public C   {public:int _d;};
 
 int main()
-{
-    student st("小红", 18); student st3("小刚", 16);
-    st = st3;
-
+{   
+    D d;
+    d.B::_a = 9;
+    d.C::_a = 10;
+    d._b = 8;
+    d._c = 6;
+    d._d = 5;
     return 0;
 }
+
+// class A
+// {
+// public:
+//     string name;
+// };
+
+// class B : public A
+// {
+// public:
+//     int age;
+// };
+
+// class C : public A
+// {
+// public:
+//     string sex;
+// };
+
+// class D : public B, public C
+// {
+// public:
+//     int id;
+// };
+// int main()
+// {
+//     D student;
+//     //student.name = "小明";
+//     student.B::name = "小明";
+
+//     student.age = 18;
+//     student.sex = "男";
+//     student.id = 666;
+//     return 0;
+// }
+
+// class Person{};
+
+// class Teacher: public Person {};
+
+// class Student:public Person {};
+
+// class Graduate : public Student, public Teacher {};
+
+// void TestPerson()
+// {
+//     Student s1;
+//     cout<<"人数 :"<<Person::_count<<" ";
+//     Student s2;
+//     cout<<Person::_count<<" ";
+
+//     Student s3;
+//     cout<<Person::_count<<" ";
+
+//     Graduate s4;
+//     cout<<Person::_count<<" ";
+
+//     Student ::_count = 0;
+//     cout <<endl<< "人数 :" << Person ::_count << endl;
+// }
+
+// int main()
+// {
+//     TestPerson();
+
+//     return 0;
+// }
+// class Student;
+
+// class Person
+// {
+// public:
+//     friend void Display(const Person &p, const Student &s);
+
+// protected:
+//     string _name; // 姓名
+// };
+
+// class Student : public Person
+// {
+// protected:
+//     int _stuNum; // 学号
+// };
+
+// void Display(const Person &p, const Student &s)
+// {
+//     cout << p._name << endl;
+//     cout << s._stuNum << endl;
+// }
+// int main()
+// {
+//     Person p;
+//     Student s;
+//     Display(p, s);
+
+//     return 0;
+// }
+
+// class Person
+// {
+// public:
+//     Person(string name = "Father")
+//         : _name(name)
+//     {    }
+
+//     Person &operator=(const Person &p)
+//     {
+//         if (this != &p)
+//         {
+//             cout << "调用父类" << endl;
+//             _name = p._name;
+//         }
+//         return *this;
+//     }
+
+// protected:
+//     string _name;
+// };
+
+// class student : public Person
+// {
+// public:
+//     student(string name, int age)
+//         : _age(age)
+//     {    }
+//     student &operator=(const student &s)
+//     {
+//         if (this != &s)
+//         {
+//             cout << "调用子类" << endl;
+//             Person::operator=(s); // 必须调用父类运算符
+//             _age = s._age;
+//             _name = s._name;
+//         }
+//         return *this;
+//     }
+
+// protected:
+//     int _age;
+// };
+
+// int main()
+// {
+//     student st("小红", 18); student st3("小刚", 16);
+//     st = st3;
+
+//     return 0;
+// }
 
 // class Person
 // {
