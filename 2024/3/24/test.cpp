@@ -13,11 +13,18 @@ class D : public B, public C   {public:int _d;};
 int main()
 {   
     D d;
-    d.B::_a = 9;
-    d.C::_a = 10;
-    d._b = 8;
-    d._c = 6;
+    d.B::_a = 1;
+    d.C::_a = 2;
+    d._b = 3;
+    d._c = 4;
     d._d = 5;
+    
+    B* bptr = &d;
+    C* cptr = &d;
+
+    bptr->_a;
+    cptr->_a;
+
     return 0;
 }
 
