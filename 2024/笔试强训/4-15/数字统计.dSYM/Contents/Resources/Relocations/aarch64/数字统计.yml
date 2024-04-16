@@ -1,0 +1,15 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/white/Desktop/Code/c++/mac-code/2024/笔试强训/4-15/数字统计"
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003C18, symSize: 0x118 }
+  - { offsetInCU: 0x4720, offset: 0x4720, size: 0x8, addend: 0x0, symName: __ZNSt3__14endlB7v160006IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_, symObjAddr: 0x170, symBinAddr: 0x100003D88, symSize: 0x58 }
+  - { offsetInCU: 0x4760, offset: 0x4760, size: 0x8, addend: 0x0, symName: __ZNSt3__19use_facetB7v160006INS_5ctypeIcEEEERKT_RKNS_6localeE, symObjAddr: 0x29C, symBinAddr: 0x100003EB4, symSize: 0x2C }
+  - { offsetInCU: 0x70B1, offset: 0x70B1, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003C18, symSize: 0x118 }
+  - { offsetInCU: 0x71E3, offset: 0x71E3, size: 0x8, addend: 0x0, symName: __ZNKSt3__19basic_iosIcNS_11char_traitsIcEEEcvbB7v160006Ev, symObjAddr: 0x118, symBinAddr: 0x100003D30, symSize: 0x2C }
+  - { offsetInCU: 0x7207, offset: 0x7207, size: 0x8, addend: 0x0, symName: __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB7v160006EPFRS3_S4_E, symObjAddr: 0x144, symBinAddr: 0x100003D5C, symSize: 0x2C }
+  - { offsetInCU: 0x7239, offset: 0x7239, size: 0x8, addend: 0x0, symName: __ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE4failB7v160006Ev, symObjAddr: 0x1C8, symBinAddr: 0x100003DE0, symSize: 0x28 }
+  - { offsetInCU: 0x725D, offset: 0x725D, size: 0x8, addend: 0x0, symName: __ZNKSt3__18ios_base4failB7v160006Ev, symObjAddr: 0x1F0, symBinAddr: 0x100003E08, symSize: 0x28 }
+  - { offsetInCU: 0x7283, offset: 0x7283, size: 0x8, addend: 0x0, symName: __ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB7v160006Ec, symObjAddr: 0x218, symBinAddr: 0x100003E30, symSize: 0x84 }
+  - { offsetInCU: 0x72EF, offset: 0x72EF, size: 0x8, addend: 0x0, symName: __ZNKSt3__15ctypeIcE5widenB7v160006Ec, symObjAddr: 0x2C8, symBinAddr: 0x100003EE0, symSize: 0x38 }
+...
