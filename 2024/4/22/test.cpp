@@ -47,9 +47,9 @@ public:
                 cur = cur->_left;
             }
             else
-                return false; // 已经存在相同值
+                return false;//已经存在相同值
         }
-        cur = new Node(key); // new节点
+        cur = new Node(key);//new节点
 
         // 链接-链接新节点
         if (parent->_key < key)
@@ -59,20 +59,20 @@ public:
 
         return true;
     }
-    bool Find(const K &key)
+bool Find(const K &key)
+{
+    Node *cur = _root;
+    while (cur)
     {
-        Node *cur = _root;
-        while (cur)
-        {
-            if (cur->_key < key)
-                cur = cur->_right;
-            else if (cur->_key > key)
-                cur = cur->_left;
-            else
-                return true;
-        }
-        return false;
+        if (cur->_key < key)
+            cur = cur->_right;
+        else if (cur->_key > key)
+            cur = cur->_left;
+        else
+            return true;
     }
+    return false;
+}
 
     // 删除
     bool Erase(const K &key)
@@ -126,12 +126,13 @@ public:
                 }
                 else
                 {
+
                     // 找左子树最右(大)节点or左子树最左(小)节点
                     Node *pminRight = cur;
                     Node *minRight = cur->_right;
                     while (minRight->_left)
                     {
-                        pminRight = minRight;
+                        pminRight=minRight;
                         minRight = minRight->_left;
                     }
                     cur->_key = minRight->_key;
@@ -149,110 +150,87 @@ public:
         return false;
     }
 
-    // 递归
-    bool FindR(const K &key)
+    bool _FindR(Node* root,const K& key)
     {
+        if(root==nullptr)
+            return false;
+        if(root->_key == key)
+            return true;
+        if(root->_key<key)
+            return _FindR(root->_right,key);
+        else
+            return _FindR(root->_left,key);
+    }
+
+    //递归
+    bool FindR(const K& key)
+    {   
         return _FindR(_root, key);
     }
 
-    bool InsertR(const K &key)
+    bool InsertR(const K& key)
     {
-        return _InsertR(_root, key);
+        return _InsertR(_root,key);
+    }
+    //Node*& root [*&] 利用引用进行链接
+    bool _InsertR(Node*& root,const K& key)
+    {
+        if(root==nullptr)
+        {
+            root=new Node(key);
+            return true;
+        }
+
+        if(root->_key<key)
+            return _InsertR(root->_right,key);
+        else if(root->_key>key) 
+            return _InsertR(root->_left,key);
+        else
+            return false;
     }
 
     bool EraseR(const K &key)
     {
-        return _EraseR(_root, key);
+        return _EraseR(_root,key);
     }
-
-    void InOrder()
+    bool _EraseR(Node*& root, const K& key)
     {
-        _InOrder(_root);
-        cout << endl
-             << "===" << endl;
-    }
-
-    // BSTree(){}
-    // BSTree()=default;
-
-    BSTree(const BSTree<K> &t)
-    {
-        _root = Copy(t._root);
-    }
-
-    ~BSTree()
-    {
-        Destory(_root);
-    }
-
-    BSTree<K> &operator=(BSTree<K> t)
-    {
-        swap(_root, t._root);
-        return *this;
-    }
-
-private:
-    // Node*& root [*&] 利用引用进行链接
-    bool _InsertR(Node *&root, const K &key)
-    {
-        if (root == nullptr)
-        {
-            root = new Node(key);
-            return true;
-        }
-
-        if (root->_key < key)
-            return _InsertR(root->_right, key);
-        else if (root->_key > key)
-            return _InsertR(root->_left, key);
-        else
+        if(root==nullptr)
             return false;
-    }
-
-    bool _EraseR(Node *&root, const K &key)
-    {
-        if (root == nullptr)
-            return false;
-
-        if (root->_key < key)
-            return _EraseR(root->_right, key);
-        else if (root->_key > key)
-            return _EraseR(root->_left, key);
+        
+        if(root->_key<key)
+            return _EraseR(root->_right,key);
+        else if (root->_key>key)
+            return _EraseR(root->_left,key);
         else
         {
-            Node *del = root;
-            // 删除
-            if (root->_right == nullptr)
-                root = root->_left;
-            else if (root->_left == nullptr)
-                root = root->_right;
+            Node* del=root;
+            //删除
+            if(root->_right==nullptr)         
+                root=root->_left;
+            else if (root->_left==nullptr)
+                root=root->_right;
             else
             {
-                Node *maxleft = root->_left;
-                while (maxleft->_right)
-                    maxleft = maxleft->_right;
-                swap(root->_key, maxleft->_key);
+                Node* maxleft=root->_left;
+                while(maxleft->_right)
+                    maxleft=maxleft->_right;
+                swap(root->_key,maxleft->_key);
 
                 return _EraseR(root->_left, key);
             }
             delete del;
-
+            
             return true;
         }
 
         return true;
     }
 
-    bool _FindR(Node *root, const K &key)
+    void InOrder()
     {
-        if (root == nullptr)
-            return false;
-        if (root->_key == key)
-            return true;
-        if (root->_key < key)
-            return _FindR(root->_right, key);
-        else
-            return _FindR(root->_left, key);
+        _InOrder(_root);
+        cout<<endl<<"==="<< endl;
     }
 
     void _InOrder(Node *root)
@@ -265,29 +243,49 @@ private:
         _InOrder(root->_right);
     }
 
-    Node *Copy(Node *root)
+    //BSTree(){}
+    //BSTree()=default;
+
+    BSTree(const BSTree<K>& t)
     {
-        if (root == nullptr)
+        _root=Copy(t._root);
+    }
+
+    ~BSTree()
+    {
+        Destory(_root);    
+    }
+
+    BSTree<K>& operator=(BSTree<K> t)
+    {
+        swap(_root,t._root);
+        return *this;
+    }
+
+private:
+    Node* Copy(Node* root)
+    {
+        if (root==nullptr)
             return nullptr;
 
-        Node *newRoot = new Node(root->_key);
-        newRoot->_left = Copy(root->_left);
-        newRoot->_right = Copy(root->_right);
+        Node* newRoot=new Node(root->_key);
+        newRoot->_left=Copy(root->_left);        
+        newRoot->_right=Copy(root->_right);        
 
         return newRoot;
     }
 
-    void Destory(Node *&root)
+    void Destory(Node*& root)
     {
-        if (root == nullptr)
+        if (root==nullptr)
             return;
-        Destory(root->_left);
-        Destory(root->_right);
+        Destory(root->_left);        
+        Destory(root->_right);        
         delete root;
-        root = nullptr;
+        root=nullptr;
     }
 
 private:
-    // Node *_root = nullptr;
+    //Node *_root = nullptr;
     Node *_root;
 };
