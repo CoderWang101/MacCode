@@ -1,0 +1,12 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/white/Desktop/Code/c++/mac-code/2024/笔试强训/4-25/1.游游的水果大礼包"
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003B64, symSize: 0x244 }
+  - { offsetInCU: 0x4720, offset: 0x4720, size: 0x8, addend: 0x0, symName: __ZNSt3__14endlB7v160006IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_, symObjAddr: 0x270, symBinAddr: 0x100003DD4, symSize: 0x58 }
+  - { offsetInCU: 0x4760, offset: 0x4760, size: 0x8, addend: 0x0, symName: __ZNSt3__19use_facetB7v160006INS_5ctypeIcEEEERKT_RKNS_6localeE, symObjAddr: 0x34C, symBinAddr: 0x100003EB0, symSize: 0x2C }
+  - { offsetInCU: 0x70BC, offset: 0x70BC, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003B64, symSize: 0x244 }
+  - { offsetInCU: 0x71F3, offset: 0x71F3, size: 0x8, addend: 0x0, symName: __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB7v160006EPFRS3_S4_E, symObjAddr: 0x244, symBinAddr: 0x100003DA8, symSize: 0x2C }
+  - { offsetInCU: 0x7225, offset: 0x7225, size: 0x8, addend: 0x0, symName: __ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB7v160006Ec, symObjAddr: 0x2C8, symBinAddr: 0x100003E2C, symSize: 0x84 }
+  - { offsetInCU: 0x7291, offset: 0x7291, size: 0x8, addend: 0x0, symName: __ZNKSt3__15ctypeIcE5widenB7v160006Ec, symObjAddr: 0x378, symBinAddr: 0x100003EDC, symSize: 0x38 }
+...
