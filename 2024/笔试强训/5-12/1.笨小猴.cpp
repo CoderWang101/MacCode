@@ -6,6 +6,7 @@
 using namespace std;
 #define INF 0x3f3f3f3f
 
+//判断是否是质数
 bool isPrime(int n)
 {
     if (n <= 1)
@@ -14,12 +15,8 @@ bool isPrime(int n)
     int sqrtN = sqrt(n); // 计算n的平方根
 
     for (int i = 2; i <= sqrtN; i++)
-    {
         if (n % i == 0)
-        {
             return false; // 如果能整除，则不是质数
-        }
-    }
 
     return true; // 如果不能整除，则是质数
 }
