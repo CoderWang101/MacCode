@@ -58,7 +58,9 @@
         "deque": "cpp",
         "queue": "cpp",
         "stack": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "__tree": "cpp",
+        "map": "cpp"
     },
     "accessibility.signals.sounds.volume": 0
 }
