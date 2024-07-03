@@ -111,6 +111,7 @@ public:
                         else
                             parent->_right = cur->_right;
                     }
+                    delete cur;
                 } // 2.右为空
                 else if (cur->_right == nullptr)
                 {
@@ -123,6 +124,7 @@ public:
                         else
                             parent->_right = cur->_left;
                     }
+                    delete cur;
                 }
                 else
                 {
@@ -135,8 +137,9 @@ public:
                         minRight = minRight->_left;
                     }
                     cur->_key = minRight->_key;
+
                     if (pminRight->_left == minRight)
-                        pminRight->_left = minRight->_right;
+                        pminRight->_left = minRight->_right;//minRight->_right可能不为空
                     else
                         pminRight->_right = minRight->_right;
 
