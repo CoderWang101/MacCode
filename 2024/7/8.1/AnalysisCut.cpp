@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    ifstream inputFile("1.txt");
+    ifstream inputFile("yian174734001--174735000.txt");
 
     if (!inputFile)
     {
