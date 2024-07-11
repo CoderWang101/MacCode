@@ -2,58 +2,67 @@
 #include <queue>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int countPath(vector<vector<int> >& CityMap, int n, int m) {
+    int countPath(vector<vector<int> > &CityMap, int n, int m)
+    {
         // 定义四个方向的移动向量：右、左、下、上
         vector<pair<int, int> > directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-        
+
         // 找到经理位置（1）和商店位置（2）
         pair<int, int> start, end;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < m; ++j) {
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < m; ++j)
+            {
                 if (CityMap[i][j] == 1)
                     start = {i, j};
                 else if (CityMap[i][j] == 2)
                     end = {i, j};
             }
         }
-        
+
         // BFS 初始化
-        queue<pair<int, int>> q;
+        queue<pair<int, int> > q;
         q.push(start);
-        
+
         // 用于记录到每个位置的最短路径数量的数组
         vector<vector<int>> countPaths(n, vector<int>(m, 0));
         countPaths[start.first][start.second] = 1; // 从经理位置开始有一条路径
-        
+
         // BFS 循环
-        while (!q.empty()) {
+        while (!q.empty())
+        {
             auto current = q.front();
             q.pop();
-            
+
             // 探索当前位置的相邻位置
-            for (auto& dir : directions) {
+            for (auto &dir : directions)
+            {
                 int ni = current.first + dir.first;
                 int nj = current.second + dir.second;
-                
-                if (ni >= 0 && ni < n && nj >= 0 && nj < m && CityMap[ni][nj] != -1) {
-                    if (countPaths[ni][nj] == 0) {
+
+                if (ni >= 0 && ni < n && nj >= 0 && nj < m && CityMap[ni][nj] != -1)
+                {
+                    if (countPaths[ni][nj] == 0)
+                    {
                         // 第一次访问该相邻位置
                         countPaths[ni][nj] = countPaths[current.first][current.second];
                         q.push({ni, nj});
-                    } else {
+                    }
+                    else
+                    {
                         // 已经访问过该相邻位置，累加路径数量
                         countPaths[ni][nj] += countPaths[current.first][current.second];
                     }
                 }
             }
         }
-        
+
         return countPaths[end.first][end.second];
     }
 };
-
 
 // #include <iostream>
 // #include <algorithm>
@@ -92,7 +101,6 @@ public:
 //         vector<VB> vis(CityMap[0].size(),VB( CityMap.size(),false));
 //         queue<pii> q;
 //         q.push(make_pair(xs-1,ys-1));
-
 
 //     }
 
