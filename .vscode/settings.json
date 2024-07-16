@@ -60,6 +60,10 @@
         "stack": "cpp",
         "set": "cpp",
         "__tree": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "fstream": "cpp",
+        "iomanip": "cpp",
+        "__bits": "cpp",
+        "__nullptr": "cpp"
     }
 }
