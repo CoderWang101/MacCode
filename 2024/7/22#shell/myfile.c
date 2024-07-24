@@ -10,10 +10,22 @@ const char *filename = "log.txt";
 
 int main()
 {
-     
-    
-    
-    
+    /*系统调用*/
+    close(1); // 关闭标准输出
+    int fd = open(filename, O_CREAT | O_WRONLY | O_WRONLY, O_TRUNC, 0666);
+    if (fd < 0)
+    {
+        perror("open");
+        return 1;
+    }
+    /*库函数*/
+    printf("printf ,fd: %d\n", fd);
+    fprintf(stdout, "fprints, fd: %d\n", fd);
+    fflush(stdout);
+
+    /*系统调用*/
+    close(fd); 
+
     return 0;
 }
 
