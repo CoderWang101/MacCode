@@ -14,7 +14,7 @@ stats_scores = [72, 90, 96, 68, 82, 78, 81, 71, 78, 94, 68, 66, 58, 87, 82, 46]
 plt.scatter(math_scores, stats_scores)
 plt.xlabel('数学成绩')
 plt.ylabel('统计学成绩')
-plt.title('数学成绩与统计学成绩的关系')#
+plt.title('数学成绩与统计学成绩的关系')
 plt.grid(True)
 plt.show()
 
