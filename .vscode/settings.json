@@ -64,6 +64,8 @@
         "fstream": "cpp",
         "iomanip": "cpp",
         "__bits": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "span": "cpp",
+        "unordered_set": "cpp"
     }
 }
